@@ -1,0 +1,6 @@
+
+@Regression @Forgot_password
+Scenario: Forgot password                    # src/test/resources/features/Login.feature:27
+  Given I am on the login page               # com.FreeCRM.step_definitions.LoginStepDefintions.i_am_on_the_login_page()
+  When I request a new password              # com.FreeCRM.step_definitions.LoginStepDefintions.i_request_a_new_password()
+  Then I am taken to the password reset page # com.FreeCRM.step_definitions.LoginStepDefintions.i_am_taken_to_the_password_reset_page()

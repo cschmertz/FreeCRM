@@ -1,0 +1,108 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 7,
+        "name": "On the login page",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 3845000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I am on the login page",
+            "match": {
+              "location": "com.FreeCRM.step_definitions.LoginStepDefintions.i_am_on_the_login_page()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-11-04T18:06:37.915Z",
+        "before": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.FreeCRM.step_definitions.Hooks.setUpScenario()"
+            }
+          }
+        ],
+        "line": 27,
+        "name": "Forgot password",
+        "description": "",
+        "id": "login-page;forgot-password",
+        "after": [
+          {
+            "result": {
+              "duration": 2098000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.FreeCRM.step_definitions.Hooks.tearDownScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 423000000,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "I request a new password",
+            "match": {
+              "location": "com.FreeCRM.step_definitions.LoginStepDefintions.i_request_a_new_password()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 44000000,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "I am taken to the password reset page",
+            "match": {
+              "location": "com.FreeCRM.step_definitions.LoginStepDefintions.i_am_taken_to_the_password_reset_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Regression"
+          },
+          {
+            "name": "@Forgot_password"
+          }
+        ]
+      }
+    ],
+    "name": "login page",
+    "description": "    I should be able to login with the correct credentials.\n    I should be able to sign up for a new account.\n    I should be able to retrieve a forgotten password.",
+    "id": "login-page",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/Login.feature",
+    "tags": [
+      {
+        "name": "@Regression",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
