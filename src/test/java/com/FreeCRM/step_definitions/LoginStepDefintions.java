@@ -4,10 +4,14 @@ import com.FreeCRM.pages.LoginPage;
 import com.FreeCRM.utilities.BrowserUtils;
 import com.FreeCRM.utilities.ConfigurationReader;
 import com.FreeCRM.utilities.Driver;
+import com.github.jscookie.javacookie.Cookies;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+
+import java.util.Arrays;
+import java.util.Map;
 
 public class LoginStepDefintions {
 
@@ -61,5 +65,19 @@ public class LoginStepDefintions {
     public void i_am_taken_to_the_password_reset_page() {
         Assert.assertTrue(lp.passwordHeader.isDisplayed());
     }
+
+    @When("I attempt to sign in")
+    public void i_attempt_to_sign_in() {
+       Assert.assertTrue(lp.emailAddressField.isDisplayed() && lp.passwordField.isDisplayed());
+    }
+
+    @Then("cookies should be enabled")
+    public void cookies_should_be_enabled() {
+        BrowserUtils.waitFor(2);
+        Map<String, String> all = lp.cookies.get();
+        System.out.println(all);
+    }
+
+
 
 }

@@ -2,9 +2,13 @@ package com.FreeCRM.pages;
 
 import com.FreeCRM.utilities.Driver;
 import com.github.javafaker.Faker;
+import com.github.jscookie.javacookie.Cookies;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.Map;
 
 public class LoginPage {
 
@@ -46,5 +50,12 @@ public class LoginPage {
     public String getRandomString() {
         return randomString;
     }
+
+
+    public javax.servlet.http.HttpServletRequest request;
+    public javax.servlet.http.HttpServletResponse response;
+    public Cookies cookies = Cookies.initFromServlet( request, response );
+
+
 
 }

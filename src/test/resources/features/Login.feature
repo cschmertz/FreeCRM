@@ -3,6 +3,7 @@ Feature: login page
     I should be able to login with the correct credentials.
     I should be able to sign up for a new account.
     I should be able to retrieve a forgotten password.
+    I should have my password stored in my browser.
 
     Background: On the login page
     Given I am on the login page
@@ -28,3 +29,7 @@ Feature: login page
       When I request a new password
       Then I am taken to the password reset page
 
+   @Cookies
+    Scenario: Check stored password
+     When I attempt to sign in
+     Then cookies should be enabled
