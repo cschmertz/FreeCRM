@@ -7,18 +7,14 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import java.util.concurrent.TimeUnit;
+
 public class Hooks {
 
     @Before
     public void setUpScenario(){
-        System.out.println("-----> Before annotation: Setting up browser");
+        Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-//
-//    @Before(value = "@db", order = 1)
-//    public void setUpDatabaseConnection(){
-//       // System.out.println("--------> BEFORE ANNOTATION: DB CONNECTION CREATED <------");
-//    }
-//
 
     @After
     public void tearDownScenario(Scenario scenario) throws  Exception{

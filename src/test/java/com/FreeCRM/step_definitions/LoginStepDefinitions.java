@@ -4,16 +4,15 @@ import com.FreeCRM.pages.LoginPage;
 import com.FreeCRM.utilities.BrowserUtils;
 import com.FreeCRM.utilities.ConfigurationReader;
 import com.FreeCRM.utilities.Driver;
-import com.github.jscookie.javacookie.Cookies;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.Cookie;
 
-import java.util.Arrays;
-import java.util.Map;
+import java.util.List;
 
-public class LoginStepDefintions {
+public class LoginStepDefinitions {
 
     LoginPage lp = new LoginPage();
 
@@ -22,10 +21,11 @@ public class LoginStepDefintions {
         Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
     }
 
-    @When("I enter the correct {string} and {string}")
-    public void i_enter_the_correct_and(String username, String password, io.cucumber.datatable.DataTable dataTable) {
-        lp.emailAddressField.sendKeys(username);
-        lp.passwordField.sendKeys(password);
+    @When("I enter the correct username and password")
+    public void iEnterTheCorrectUsernameAndPassword(io.cucumber.datatable.DataTable dataTable) {
+        List<String> data = dataTable.asList(String.class);
+        lp.emailAddressField.sendKeys(data.get(0));
+        lp.passwordField.sendKeys(data.get(1));
         lp.loginButton.click();
     }
 
@@ -73,11 +73,12 @@ public class LoginStepDefintions {
 
     @Then("cookies should be enabled")
     public void cookies_should_be_enabled() {
-        BrowserUtils.waitFor(2);
-        Map<String, String> all = lp.cookies.get();
-        System.out.println(all);
+        //creating a new cookie, adding it, then asserting that it exists
+        Cookie cookie = new Cookie("name","value");
+        Driver.getDriver().manage().addCookie(cookie);
+        Assert.assertEquals(cookie.getValue(), Driver.getDriver().manage().getCookieNamed(cookie.getName()).getValue());
+        Assert.assertEquals("value", cookie.getValue());
+        Assert.assertEquals("name" , cookie.getName());
     }
-
-
 
 }

@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         glue = "com/FreeCRM/step_definitions",
         dryRun = false,
         monochrome = true,
-        tags = "@Cookies"
+        tags = "@Regression"
 )
 
 

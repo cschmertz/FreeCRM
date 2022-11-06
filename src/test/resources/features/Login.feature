@@ -10,8 +10,9 @@ Feature: login page
 
   @Smoke @Valid_login
   Scenario: Login with correct credentials
-    When I enter the correct "<username>" and "<password>"
-      |cschmertz@gmail.com           |practicePassword123|
+    When I enter the correct username and password
+      |cschmertz@gmail.com|
+      |practicePassword123|
     Then I should be signed in and taken to the homepage
 
   @Smoke @Invalid_login
