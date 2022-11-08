@@ -45,6 +45,9 @@ public class LoginPage {
     @FindBy(css = "div[class = 'header item']")
     public WebElement homepageHeader;
 
+    @FindBy(css = "div[class = 'ui negative message']")
+    public WebElement loginErrorMessage;
+
     String randomString = faker.toString();
 
     public String getRandomString() {
@@ -55,6 +58,14 @@ public class LoginPage {
     public javax.servlet.http.HttpServletRequest request;
     public javax.servlet.http.HttpServletResponse response;
     public Cookies cookies = Cookies.initFromServlet( request, response );
+
+    public void login(String username,String password){
+
+        emailAddressField.sendKeys(username);
+        passwordField.sendKeys(password);
+        loginButton.click();
+
+    }
 
 
 
