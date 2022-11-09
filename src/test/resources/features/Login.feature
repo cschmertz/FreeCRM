@@ -4,6 +4,7 @@ Feature: login page
     I should be able to sign up for a new account.
     I should be able to retrieve a forgotten password.
     I should have my password stored in my browser.
+    I should receive an Account locked error message upon entering the incorrect password multiple times.
 
     Background: On the login page
     Given I am on the login page
@@ -34,3 +35,16 @@ Feature: login page
     Scenario: Check stored password
      When I attempt to sign in
      Then cookies should be enabled
+
+  @State_transition_account_locked
+  Scenario Outline: Ensure account is locked after too many failed password attempts
+    When I attempt to enter correct "<username>" but incorrect "<password>" multiple times
+    Then I should receive an account locked error message
+    Examples:
+      |username               |password       |
+      |riaz11@hotmail.com.com |failedPassword1|
+      |riaz11@hotmail.com.com |failedPassword2|
+      |riaz11@hotmail.com.com |failedPassword3|
+      |riaz11@hotmail.com.com |failedPassword4|
+      |riaz11@hotmail.com.com |failedPassword5|
+      |riaz11@hotmail.com.com |failedPassword6|
