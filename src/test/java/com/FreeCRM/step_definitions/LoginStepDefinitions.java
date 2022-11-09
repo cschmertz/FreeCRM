@@ -7,6 +7,7 @@ import com.FreeCRM.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.lu.an;
 import org.junit.Assert;
 import org.openqa.selenium.Cookie;
 
@@ -103,7 +104,7 @@ public class LoginStepDefinitions extends LoginPage{
             Assert.assertEquals(expectedInvalidLogin,actualInvalidLogin);
             Assert.assertTrue(loginErrorMessage.isDisplayed());
             System.out.println(loginErrorMessage.getText());
-        }else if (expectedAccountLocked.equals(expectedAccountLocked)){
+        }else if (expectedAccountLocked.equals(actualAccountLocked)){
             Assert.assertEquals(expectedAccountLocked,actualAccountLocked);
             Assert.assertTrue(loginErrorMessage.isDisplayed());
             System.out.println(loginErrorMessage.getText());
