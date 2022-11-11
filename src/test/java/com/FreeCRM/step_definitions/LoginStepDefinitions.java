@@ -1,18 +1,14 @@
 package com.FreeCRM.step_definitions;
 
 import com.FreeCRM.pages.LoginPage;
-import com.FreeCRM.utilities.BrowserUtils;
 import com.FreeCRM.utilities.ConfigurationReader;
 import com.FreeCRM.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.lu.an;
 import org.junit.Assert;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Keys;
-
-import java.awt.event.KeyEvent;
 import java.util.List;
 
 public class LoginStepDefinitions extends LoginPage{
@@ -121,11 +117,14 @@ public class LoginStepDefinitions extends LoginPage{
     @When("I select the TAB key")
     public void i_select_the_tab_key() {
         emailAddressField.sendKeys(Keys.TAB);
+        passwordField.sendKeys("test");
     }
 
     @Then("the cursor should be on the Password field")
     public void the_cursor_should_be_on_the_password_field() {
-        Assert.assertTrue(passwordField.isEnabled());
+        String passwordTestActual = passwordField.getAttribute("value");
+        String passwordTestExpected = "test";
+        Assert.assertEquals(passwordTestExpected, passwordTestActual);
     }
 
 }
