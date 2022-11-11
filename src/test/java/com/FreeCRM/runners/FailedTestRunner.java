@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "pretty"
         },
 
-        features = "@target/rerun.txt",
+        features = "@target1/rerun.txt",
         glue = "com/FreeCRM/step_definitions"
 )
 public class FailedTestRunner {
