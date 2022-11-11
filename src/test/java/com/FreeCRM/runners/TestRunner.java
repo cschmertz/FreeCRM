@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         glue = "com/FreeCRM/step_definitions",
         dryRun = false,
         monochrome = true,
-        tags = "@Invalid_login"
+        tags = "@Tab_function"
 )
 
 

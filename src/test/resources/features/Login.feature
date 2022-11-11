@@ -5,6 +5,7 @@ Feature: login page
     I should be able to retrieve a forgotten password.
     I should have my password stored in my browser.
     I should receive an Account locked error message upon entering the incorrect password multiple times.
+    I should be able to navigate between email field and password field using the TAB key.
 
     Background: On the login page
     Given I am on the login page
@@ -48,3 +49,9 @@ Feature: login page
       |riaz11@hotmail.com.com |failedPassword4|
       |riaz11@hotmail.com.com |failedPassword5|
       |riaz11@hotmail.com.com |failedPassword6|
+
+    @Tab_function
+    Scenario: Switch between username and password using TAB key
+      Given the cursor is on the Username field
+      When I select the TAB key
+      Then the cursor should be on the Password field
