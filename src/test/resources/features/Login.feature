@@ -5,7 +5,7 @@ Feature: login page
     I should be able to retrieve a forgotten password.
     I should have my password stored in my browser.
     I should receive an Account locked error message upon entering the incorrect password multiple times.
-    I should be able to navigate between email field and password field using the TAB key.
+    I should be able to navigate between username field and password field using the TAB key.
 
     Background: On the login page
     Given I am on the login page
