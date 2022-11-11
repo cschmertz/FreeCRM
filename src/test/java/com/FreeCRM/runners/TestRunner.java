@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
         plugin = {"html:target/cucumber-report.html",
                 "json:target/cucumber.json",
                 "rerun:target1/rerun.txt",
-                "pretty:build/cucumber-pretty.txt",
                 "pretty"
         },
 
@@ -17,7 +16,7 @@ import org.junit.runner.RunWith;
         glue = "com/FreeCRM/step_definitions",
         dryRun = false,
         monochrome = true,
-        tags = "@State_transition_account_locked"
+        tags = "@Invalid_login"
 )
 
 
