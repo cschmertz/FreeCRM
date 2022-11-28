@@ -53,6 +53,17 @@ public class Driver {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
+                case "remote_firefox":
+
+                    try {
+                        DesiredCapabilities cap = new DesiredCapabilities();
+                        cap.setBrowserName(BrowserType.FIREFOX);
+                        cap.setCapability("platform", Platform.ANY);
+                        driver = (new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
 
 
             }
